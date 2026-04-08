@@ -1,0 +1,41 @@
+import java.util.*;
+
+class Location {
+    double lat, lon;
+
+    Location(double lat, double lon) {
+        this.lat = lat;
+        this.lon = lon;
+    }
+}
+
+class Ambulance {
+    int id;
+    Location loc;
+    String status;
+
+    Ambulance(int id, Location loc, String status) {
+        this.id = id;
+        this.loc = loc;
+        this.status = status;
+    }
+}
+
+class TrackingSystem {
+    List<Ambulance> list = new ArrayList<>();
+
+    void add(Ambulance a) {
+        list.add(a);
+    }
+
+    Ambulance getNearest() {
+        if (list.isEmpty()) return null;
+        return list.get(0);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        TrackingSystem t = new TrackingSystem();
+
+        t.add(new Ambulance(1, new Location(10.0, 20.0), "…
